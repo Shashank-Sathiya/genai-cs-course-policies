@@ -56,5 +56,11 @@ window.TIMELINE = [
   "actor": "student",
   "phase": "validation",
   "text": "Spot-checked rows 1-5 (CS50x, CS106A, CS106B, CS166, CS193X) against their source links; all matched. Results recorded in docs/VALIDATION.md."
+ },
+ {
+  "ts": "2026-10-23T13:20:28-04:00",
+  "actor": "student",
+  "phase": "evaluation",
+  "text": "Wrote the project evaluation (docs/EVALUATION.md), assessing which goals were met, partly met, or not met."
  }
 ];
