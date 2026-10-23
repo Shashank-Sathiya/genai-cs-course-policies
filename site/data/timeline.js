@@ -10,7 +10,7 @@ window.TIMELINE = [
   "ts": "2026-10-23T11:21:00-04:00",
   "actor": "claude",
   "phase": "setup",
-  "text": "Found the working folder sat inside a git repo rooted at the home directory (tracking .ssh). Created an isolated repo for the project instead. Stated it would keep data real and cited, leave the evaluation/reflection to the student, and confirm before publishing.",
+  "text": "Found the working folder sat inside an unrelated parent git repo. Created an isolated repo for the project instead. Stated it would keep data real and cited, leave the evaluation/reflection to the student, and confirm before publishing.",
   "approx": true
  },
  {

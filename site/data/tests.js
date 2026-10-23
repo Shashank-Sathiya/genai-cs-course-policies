@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T15:44:13+00:00",
+ "generated": "2026-10-23T15:47:45+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -7,7 +7,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_distribution_fixture",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -294,7 +294,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_level_in_codebook[acc-csit]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -364,7 +364,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uiuc-cs124]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -427,7 +427,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[stanford-cs106a]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -595,7 +595,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_quote_present_and_short[cmu-15112]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -882,14 +882,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_year_plausible[gatech-cs1332]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_year_plausible[acc-csit]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -938,7 +938,7 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_pages_exist",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -952,21 +952,21 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.058,
+   "time": 0.066,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.007,
+   "time": 0.002,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.044,
+   "time": 0.046,
    "message": ""
   }
  ]
