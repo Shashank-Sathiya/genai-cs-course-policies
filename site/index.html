@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GenAI in CS Courses</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav><strong>GenAI Course Policies</strong>
+<a href="index.html" class="on">Dashboard</a><a href="tests.html">Validation</a><a href="timeline.html">Timeline</a><a href="tokens.html">Tokens</a></nav></header>
+<main>
+<h1>How US CS courses let students use generative AI</h1>
+<p class="sub" id="subtitle"></p>
+
+<div class="kpis" id="kpis"></div>
+
+<div class="grid2" style="margin-top:16px">
+  <section class="panel"><h2 style="margin-top:0">Permissiveness level (count of policies)</h2><div id="dist"></div></section>
+  <section class="panel"><h2 style="margin-top:0">Mean level by course level (0–4)</h2><div id="bycl"></div>
+    <h2>Mean level by policy year</h2><div id="byyear"></div></section>
+</div>
+
+<h2>All coded policies</h2>
+<div class="controls">
+  <input type="search" id="q" placeholder="Search institution, course, quote…" aria-label="Search">
+  <select id="lvl" aria-label="Level"><option value="">All levels</option></select>
+  <select id="cl" aria-label="Course level"><option value="">All course levels</option></select>
+</div>
+<div class="tablewrap"><table>
+  <thead><tr><th>Institution</th><th>Course</th><th>Term</th><th>Level</th><th>Disclose?</th><th>Exam ban?</th><th>Evidence</th></tr></thead>
+  <tbody id="rows"></tbody></table></div>
+<p class="muted" id="count"></p>
+
+<h2>Analysis approach</h2>
+<div class="panel">
+<p><b>Coding.</b> Each course policy was read at its primary source and coded on an ordinal 0–4 permissiveness scale, plus three tri-state features: disclosure required, AI banned on exams, course-provided AI tool. Fields a policy doesn't address are left null and excluded from rates, so they don't count as "no".</p>
+<p><b>Measures.</b> Level distribution, mean level by course level / institution type / year, and feature rates among policies that state them. This is computed by <code>analysis/analyze.py</code> and checked by tests against hand-computed fixtures.</p>
+<p><b>Limitations.</b> The sample is small (17) and non-random: it favors well-known R1 schools with public course pages. Courses behind logins (e.g. Princeton) or with broken certificates (Cornell, UChicago) were excluded. A single coder (Claude) did the coding; the student should spot-check a sample against the sources. Treat the numbers as descriptive, not as national estimates.</p>
+<p><b>Next step for a stronger analysis.</b> Draw a stratified random sample (R1 / R2 / liberal arts / community college × CS1 / CS2 / upper) and have two coders apply the codebook independently. Report Cohen's κ, then test the year trend with an ordinal regression.</p>
+</div>
+<h2>Codebook</h2><div class="panel" id="codebook"></div>
+</main>
+<script src="data/policies.js"></script>
+<script src="data/summary.js"></script>
+<script>
+const D = window.POLICIES, S = window.SUMMARY, P = D.policies;
+const COL = l => `var(--l${l})`;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const yn = v => v === null ? '<span class="muted">—</span>' : v ? "Yes" : "No";
+const pct = r => r.rate === null ? "—" : Math.round(r.rate * 100) + "%";
+document.getElementById("subtitle").textContent =
+  `${S.n_policies} policies from ${S.n_institutions} institutions, read at the source and retrieved ${D.retrieved}.`;
+document.getElementById("kpis").innerHTML = [
+  [S.n_policies, "policies coded"],
+  [`${S.any_ai_allowed}/${S.n_policies}`, "allow at least some AI"],
+  [S.mean_level.toFixed(2), "mean permissiveness (0–4)"],
+  [pct(S.disclosure_required), `require disclosure (of ${S.disclosure_required.stated} that say)`],
+  [pct(S.exams_ai_banned), `ban AI on exams (of ${S.exams_ai_banned.stated} that say)`],
+].map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+
+function bars(el, rows, max) {
+  document.getElementById(el).innerHTML = rows.map(([label, val, color, shown]) =>
+    `<div class="bar-row"><span>${esc(label)}</span><div class="bar-track"><div class="bar" style="width:${val / max * 100}%;background:${color}"></div></div><span class="num">${shown ?? val}</span></div>`).join("");
+}
+const short = ["Prohibited", "Course tool only", "Restricted", "Conditional", "Encouraged"];
+const maxCount = Math.max(...Object.values(S.level_distribution));
+bars("dist", Object.entries(S.level_distribution).map(([l, n]) => [`${l} · ${short[l]}`, n, COL(l)]), maxCount);
+bars("bycl", Object.entries(S.by_course_level).map(([k, g]) => [`${k} (n=${g.n})`, g.mean, "var(--accent)", g.mean.toFixed(2)]), 4);
+bars("byyear", Object.entries(S.by_year).map(([k, g]) => [`${k} (n=${g.n})`, g.mean, "var(--accent)", g.mean.toFixed(2)]), 4);
+
+const lvlSel = document.getElementById("lvl"), clSel = document.getElementById("cl");
+Object.entries(D.codebook.level).forEach(([k, v]) => lvlSel.add(new Option(`${k} – ${short[k]}`, k)));
+D.codebook.course_level.forEach(c => clSel.add(new Option(c, c)));
+function render() {
+  const q = document.getElementById("q").value.toLowerCase();
+  const rows = P.filter(p => (!lvlSel.value || p.level == lvlSel.value) && (!clSel.value || p.course_level === clSel.value) &&
+    (!q || [p.institution, p.course, p.quote, p.notes, p.state].join(" ").toLowerCase().includes(q)));
+  document.getElementById("rows").innerHTML = rows.map(p => `<tr>
+    <td>${esc(p.institution)}<br><span class="muted">${esc(p.state)} · ${esc(p.institution_type)}</span></td>
+    <td>${esc(p.course)}<br><span class="muted">${esc(p.course_level)}</span></td>
+    <td>${esc(p.term)}</td>
+    <td><span class="pill" style="background:${COL(p.level)}">${p.level} ${short[p.level]}</span></td>
+    <td>${yn(p.disclosure_required)}</td><td>${yn(p.exams_ai_banned)}</td>
+    <td><q>${esc(p.quote)}</q>${p.notes ? `<br><span class="muted">${esc(p.notes)}</span>` : ""}<br><a href="${esc(p.source)}" target="_blank" rel="noopener">${esc(p.source_type)} ↗</a></td></tr>`).join("");
+  document.getElementById("count").textContent = `${rows.length} of ${P.length} shown`;
+}
+["q", "lvl", "cl"].forEach(id => document.getElementById(id).addEventListener("input", render));
+render();
+document.getElementById("codebook").innerHTML = Object.entries(D.codebook.level)
+  .map(([k, v]) => `<div class="bar-row" style="grid-template-columns:110px 1fr"><span class="pill" style="background:${COL(k)}">${k} ${short[k]}</span><span>${esc(v)}</span></div>`).join("");
+</script>
+</body>
+</html>

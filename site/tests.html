@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation Explorer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav><strong>GenAI Course Policies</strong>
+<a href="index.html">Dashboard</a><a href="tests.html" class="on">Validation</a><a href="timeline.html">Timeline</a><a href="tokens.html">Tokens</a></nav></header>
+<main>
+<h1>Validation explorer</h1>
+<p class="sub" id="meta"></p>
+<div class="kpis" id="kpis"></div>
+
+<h2>What the tests prove</h2>
+<div class="grid2">
+  <div class="panel"><b>test_data</b>: every coded policy has all fields, a valid code, an https source, and a short verbatim quote as evidence. It also checks internal consistency: a "course tool only" policy must have a course tool, and a "prohibited" policy can't.</div>
+  <div class="panel"><b>test_analysis</b>: the analysis functions match hand-computed answers on a 3-row fixture, null handling is correct (unstated ≠ "no"), and the totals reconcile on the real data.</div>
+  <div class="panel"><b>test_site</b>: the data shipped to the dashboard equals the source dataset and a fresh analysis run, so the charts can't drift from the data. It also checks that every page exists and links to the others, and that every timeline entry is timestamped.</div>
+  <div class="panel"><b>Not covered by tests</b>: whether each <i>code</i> is the right reading of its policy. That takes human judgment. To check, open the source links on the dashboard and compare a sample of quotes and levels yourself.</div>
+</div>
+
+<h2>All test results</h2>
+<div class="controls">
+  <input type="search" id="q" placeholder="Search test names or messages…" aria-label="Search">
+  <select id="file" aria-label="File"><option value="">All files</option></select>
+  <select id="status" aria-label="Status"><option value="">All statuses</option><option>passed</option><option>failed</option><option>skipped</option></select>
+</div>
+<div class="tablewrap"><table><thead><tr><th>Status</th><th>File</th><th>Test</th><th>Time (s)</th></tr></thead><tbody id="rows"></tbody></table></div>
+<p class="muted" id="count"></p>
+
+<h2>Reproduce</h2>
+<div class="panel"><pre>python -m venv .venv
+.venv/Scripts/python -m pip install pytest pypdf   # (bin/ on macOS/Linux)
+.venv/Scripts/python scripts/build.py              # runs analysis + all tests, regenerates this page's data</pre></div>
+</main>
+<script src="data/tests.js"></script>
+<script>
+const T = window.TESTS;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n = s => T.tests.filter(t => t.status === s).length;
+document.getElementById("meta").textContent = `Generated ${T.generated} · Python ${T.python} · pytest exit code ${T.exit_code}`;
+document.getElementById("kpis").innerHTML = [[T.tests.length, "tests run"], [n("passed"), "passed"], [n("failed"), "failed"], [n("skipped"), "skipped"],
+  [T.tests.reduce((a, t) => a + t.time, 0).toFixed(2) + "s", "total time"]]
+  .map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+const fileSel = document.getElementById("file");
+[...new Set(T.tests.map(t => t.file))].forEach(f => fileSel.add(new Option(f, f)));
+const color = { passed: "var(--pass)", failed: "var(--fail)", skipped: "var(--skip)" };
+function render() {
+  const q = document.getElementById("q").value.toLowerCase(), st = document.getElementById("status").value;
+  const rows = T.tests.filter(t => (!fileSel.value || t.file === fileSel.value) && (!st || t.status === st) &&
+    (!q || (t.name + " " + t.message).toLowerCase().includes(q)));
+  document.getElementById("rows").innerHTML = rows.map(t => `<tr><td><span class="pill" style="background:${color[t.status]}">${t.status}</span></td>
+    <td>${esc(t.file)}</td><td><code>${esc(t.name)}</code>${t.message ? `<pre>${esc(t.message)}</pre>` : ""}</td><td class="num">${t.time.toFixed(3)}</td></tr>`).join("");
+  document.getElementById("count").textContent = `${rows.length} of ${T.tests.length} shown`;
+}
+["q", "file", "status"].forEach(id => document.getElementById(id).addEventListener("input", render));
+render();
+</script>
+</body>
+</html>

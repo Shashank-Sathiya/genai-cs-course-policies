@@ -1,0 +1,42 @@
+window.TIMELINE = [
+ {
+  "ts": "2026-10-23T11:20:00-04:00",
+  "actor": "student",
+  "phase": "setup",
+  "text": "Pasted the assignment brief (agentic development; genAI-in-CS-courses policy dashboard; validation, timeline, token pages) and asked to finish it as quickly as possible.",
+  "approx": true
+ },
+ {
+  "ts": "2026-10-23T11:21:00-04:00",
+  "actor": "claude",
+  "phase": "setup",
+  "text": "Found the working folder sat inside a git repo rooted at the home directory (tracking .ssh). Created an isolated repo for the project instead. Stated it would keep data real and cited, leave the evaluation/reflection to the student, and confirm before publishing.",
+  "approx": true
+ },
+ {
+  "ts": "2026-10-23T11:25:00-04:00",
+  "actor": "claude",
+  "phase": "data",
+  "text": "Web search + fetch of course policy pages. Search summaries were thin, so switched to fetching primary course pages. Several fetches failed (Cornell/UChicago certificate errors, Princeton behind SSO, 61A 404); those courses were excluded rather than coded from secondary summaries.",
+  "approx": true
+ },
+ {
+  "ts": "2026-10-23T11:38:28-04:00",
+  "actor": "claude",
+  "phase": "data",
+  "text": "Coded 17 policies (16 courses at 8 universities + 1 community-college division) on a 0-4 permissiveness scale. Georgia Tech syllabi were PDFs; extracted text locally with pypdf to verify quotes."
+ },
+ {
+  "ts": "2026-10-23T11:41:00-04:00",
+  "actor": "claude",
+  "phase": "code",
+  "text": "Wrote analysis/analyze.py, tests (data integrity, analysis fixtures, site/data consistency), build script, and four static pages: dashboard, test explorer, timeline, token usage.",
+  "approx": true
+ },
+ {
+  "ts": "2026-10-23T11:43:12-04:00",
+  "actor": "claude",
+  "phase": "validation",
+  "text": "Build ran 138 tests, all passing. Mutation check: injected 3 bugs (nulls counted as 'No', stale dashboard data, policy with empty evidence quote); tests caught each one (3, 1, 1 failures). Restored and rebuilt green. Rendered all 4 pages in the browser; no console errors."
+ }
+];

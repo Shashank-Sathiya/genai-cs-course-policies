@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Timeline</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.entry { display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.entry:last-child { border-bottom: 0; }
+.who { font-weight: 600; font-size: .85rem; }
+@media (max-width: 560px) { .entry { grid-template-columns: 1fr; gap: 2px; } }
+</style>
+</head>
+<body>
+<header><nav><strong>GenAI Course Policies</strong>
+<a href="index.html">Dashboard</a><a href="tests.html">Validation</a><a href="timeline.html" class="on">Timeline</a><a href="tokens.html">Tokens</a></nav></header>
+<main>
+<h1>Project timeline &amp; contributions</h1>
+<p class="sub">Every student prompt/decision and every Claude action, timestamped. Source: <code>docs/log.jsonl</code>, appended with <code>scripts/log.py</code>. Entries marked ≈ have reconstructed (approximate) times.</p>
+<div class="kpis" id="kpis"></div>
+<div class="controls" style="margin-top:16px">
+  <input type="search" id="q" placeholder="Search entries…" aria-label="Search">
+  <select id="actor" aria-label="Actor"><option value="">Student + Claude</option><option value="student">Student only</option><option value="claude">Claude only</option></select>
+  <select id="phase" aria-label="Phase"><option value="">All phases</option></select>
+</div>
+<div class="panel" id="list"></div>
+<div class="legend" style="margin-top:10px"><span><i style="background:var(--student)"></i>Student</span><span><i style="background:var(--claude)"></i>Claude</span></div>
+</main>
+<script src="data/timeline.js"></script>
+<script>
+const L = window.TIMELINE;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cnt = a => L.filter(e => e.actor === a).length;
+document.getElementById("kpis").innerHTML = [[L.length, "entries"], [cnt("student"), "student entries"], [cnt("claude"), "Claude entries"],
+  [new Set(L.map(e => e.phase)).size, "phases touched"]].map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+const ph = document.getElementById("phase");
+[...new Set(L.map(e => e.phase))].forEach(p => ph.add(new Option(p, p)));
+function render() {
+  const q = document.getElementById("q").value.toLowerCase(), a = document.getElementById("actor").value;
+  const rows = L.filter(e => (!a || e.actor === a) && (!ph.value || e.phase === ph.value) && (!q || e.text.toLowerCase().includes(q)));
+  document.getElementById("list").innerHTML = rows.map(e => `<div class="entry">
+    <div><div class="who" style="color:var(--${e.actor})">${e.actor === "student" ? "Student" : "Claude"}</div>
+    <div class="muted" style="font-size:.8rem">${e.approx ? "≈ " : ""}${esc(e.ts.replace("T", " ").slice(0, 16))}<br>${esc(e.phase)}</div></div>
+    <div>${esc(e.text)}</div></div>`).join("") || '<p class="muted">No entries match.</p>';
+}
+["q", "actor", "phase"].forEach(id => document.getElementById(id).addEventListener("input", render));
+render();
+</script>
+</body>
+</html>

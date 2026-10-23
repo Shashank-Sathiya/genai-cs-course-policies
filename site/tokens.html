@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Usage</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav><strong>GenAI Course Policies</strong>
+<a href="index.html">Dashboard</a><a href="tests.html">Validation</a><a href="timeline.html">Timeline</a><a href="tokens.html" class="on">Tokens</a></nav></header>
+<main>
+<h1>Token usage</h1>
+<p class="sub" id="note"></p>
+<div class="kpis" id="kpis"></div>
+
+<div class="grid2" style="margin-top:16px">
+  <section class="panel"><h2 style="margin-top:0">Context size at each checkpoint</h2><div id="ctx"></div></section>
+  <section class="panel"><h2 style="margin-top:0">What fills the context (latest checkpoint)</h2><div id="brk"></div></section>
+</div>
+
+<h2>All checkpoints</h2>
+<div class="tablewrap"><table><thead><tr><th>Time</th><th>Phase</th><th>Event</th><th>Context tokens</th><th>Δ since previous</th><th>5-hour plan %</th><th>Weekly %</th></tr></thead><tbody id="rows"></tbody></table></div>
+
+<h2>Reading this page</h2>
+<div class="panel">
+<p><b>Fixed overhead.</b> Tool definitions, the system prompt and skills are loaded every turn, whatever the task. This is the floor that <code>/clear</code> returns you to.</p>
+<p><b>Messages.</b> This grows with every web fetch, file read and test run. Data gathering (web pages) and validation (test output) usually grow it fastest.</p>
+<p><b>/clear vs /compact.</b> <code>/clear</code> drops all messages; the spec files (<code>CLAUDE.md</code>, <code>specs/</code>) let Claude recover the project state from disk. <code>/compact</code> keeps a summary instead, so it costs a summarization pass but keeps more continuity. Log a checkpoint just before and after either one to measure the difference.</p>
+</div>
+</main>
+<script src="data/tokens.js"></script>
+<script>
+const K = window.TOKENS, C = K.checkpoints;
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt = n => n.toLocaleString("en-US");
+const last = C[C.length - 1];
+document.getElementById("note").textContent = `${K.plan} · ${K.model}. ${K.note}`;
+document.getElementById("kpis").innerHTML = [[C.length, "checkpoints"], [fmt(Math.max(...C.map(c => c.context_tokens))), "peak context tokens"],
+  [last.plan_5h_pct + "%", "5-hour limit used (latest)"], [last.weekly_pct + "%", "weekly limit used (latest)"]]
+  .map(([b, s]) => `<div class="kpi"><b>${b}</b><span>${s}</span></div>`).join("");
+const bars = (el, rows, max) => document.getElementById(el).innerHTML = rows.map(([l, v]) =>
+  `<div class="bar-row"><span>${esc(l)}</span><div class="bar-track"><div class="bar" style="width:${v / max * 100}%"></div></div><span class="num">${(v / 1000).toFixed(0)}k</span></div>`).join("");
+const maxCtx = Math.max(...C.map(c => c.context_tokens));
+bars("ctx", C.map(c => [`${c.ts.slice(11, 16)} ${c.event}`, c.context_tokens]), maxCtx);
+const b = Object.entries(last.breakdown || {});
+bars("brk", b, Math.max(...b.map(x => x[1])));
+document.getElementById("rows").innerHTML = C.map((c, i) => `<tr><td>${esc(c.ts.replace("T", " ").slice(0, 16))}</td><td>${esc(c.phase)}</td><td>${esc(c.event)}</td>
+  <td class="num">${fmt(c.context_tokens)}</td><td class="num">${i ? (c.context_tokens - C[i - 1].context_tokens >= 0 ? "+" : "") + fmt(c.context_tokens - C[i - 1].context_tokens) : "—"}</td>
+  <td class="num">${c.plan_5h_pct}%</td><td class="num">${c.weekly_pct}%</td></tr>`).join("");
+</script>
+</body>
+</html>
