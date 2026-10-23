@@ -38,5 +38,17 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "validation",
   "text": "Build ran 138 tests, all passing. Mutation check: injected 3 bugs (nulls counted as 'No', stale dashboard data, policy with empty evidence quote); tests caught each one (3, 1, 1 failures). Restored and rebuilt green. Rendered all 4 pages in the browser; no console errors."
+ },
+ {
+  "ts": "2026-10-23T12:42:04-04:00",
+  "actor": "student",
+  "phase": "docs",
+  "text": "Moved project to Documents/CS Special Topics/Project-2 and approved publishing it as a public GitHub repo with Pages."
+ },
+ {
+  "ts": "2026-10-23T12:42:04-04:00",
+  "actor": "claude",
+  "phase": "docs",
+  "text": "Installed GitHub CLI; student signed in. Created public repo Shashank-Sathiya/genai-cs-course-policies, enabled GitHub Pages; CI ran 138 tests (all pass) and deployed the site."
  }
 ];
