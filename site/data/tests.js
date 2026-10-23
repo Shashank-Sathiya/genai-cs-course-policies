@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T17:49:48+00:00",
+ "generated": "2026-10-23T17:50:37+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -952,28 +952,28 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.053,
+   "time": 0.044,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.003,
+   "time": 0.004,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_token_checkpoints_well_formed",
    "status": "passed",
-   "time": 0.053,
+   "time": 0.044,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.037,
+   "time": 0.044,
    "message": ""
   }
  ]

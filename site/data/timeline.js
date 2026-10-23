@@ -74,5 +74,11 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "experiment",
   "text": "After /clear (fresh session): 76,300 context tokens (system tools 37.3k, MCP tools 20.5k, system prompt 11.8k, skills 5.8k, memory 0.8k), down from 182,173 before /clear. After the reload task (reading specs/STATUS.md and summarizing): 76,311 tokens, as reported by get_usage. The meter only counted 11 message tokens, so it probably lags behind the turn in progress."
+ },
+ {
+  "ts": "2026-10-23T13:50:37-04:00",
+  "actor": "claude",
+  "phase": "experiment",
+  "text": "Re-took the after-reload reading on a new turn, intended to replace the 76,311 reading that lagged within its turn. get_usage reported 76,300 context tokens (5h 22%, weekly 5%) with no Messages category at all. That is the same as the after-/clear reading, so this meter appears to count only fixed overhead (tools, system prompt, skills, memory) in this session and does not reflect the reload's message tokens."
  }
 ];
