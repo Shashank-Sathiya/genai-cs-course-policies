@@ -62,5 +62,11 @@ window.TIMELINE = [
   "actor": "student",
   "phase": "evaluation",
   "text": "Wrote the project evaluation (docs/EVALUATION.md), assessing which goals were met, partly met, or not met."
+ },
+ {
+  "ts": "2026-10-23T13:21:47-04:00",
+  "actor": "claude",
+  "phase": "experiment",
+  "text": "Set up /clear vs /compact token experiment: added scripts/checkpoint.py, checkpoint instructions in CLAUDE.md, experiment panel on tokens page. Recorded 'before /clear' checkpoint (182,173 context tokens)."
  }
 ];

@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T17:20:28+00:00",
+ "generated": "2026-10-23T17:21:48+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -7,7 +7,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_distribution_fixture",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -42,7 +42,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_summary_real_data_consistent",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -140,7 +140,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_required_fields[uiuc-cs277]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -161,14 +161,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_required_fields[gatech-cs1301]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_required_fields[gatech-cs1332]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -315,7 +315,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[stanford-cs106b]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -343,21 +343,21 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uw-cse373]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uw-cse493e]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[cmu-15112]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -406,7 +406,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[gatech-cs1332]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -420,7 +420,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[harvard-cs50x]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -518,7 +518,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[gatech-cs1301]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -672,14 +672,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_tristate_fields[stanford-cs106b]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_tristate_fields[stanford-cs166]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -700,7 +700,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_tristate_fields[uw-cse373]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -868,28 +868,28 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_year_plausible[berkeley-cs61b]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_year_plausible[gatech-cs1301]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_year_plausible[gatech-cs1332]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_year_plausible[acc-csit]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -917,7 +917,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_prohibited_not_marked_as_course_tool[uiuc-cs225]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -952,21 +952,28 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.034,
+   "time": 0.05,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.025,
+   "time": 0.004,
+   "message": ""
+  },
+  {
+   "file": "test_site",
+   "name": "test_token_checkpoints_well_formed",
+   "status": "passed",
+   "time": 0.048,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.045,
+   "time": 0.042,
    "message": ""
   }
  ]

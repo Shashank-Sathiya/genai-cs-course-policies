@@ -18,6 +18,12 @@
   <section class="panel"><h2 style="margin-top:0">What fills the context (latest checkpoint)</h2><div id="brk"></div></section>
 </div>
 
+<h2>/clear vs /compact experiment</h2>
+<div class="grid2">
+  <section class="panel"><h2 style="margin-top:0">/clear</h2><div id="exp-clear"></div></section>
+  <section class="panel"><h2 style="margin-top:0">/compact</h2><div id="exp-compact"></div></section>
+</div>
+
 <h2>All checkpoints</h2>
 <div class="tablewrap"><table><thead><tr><th>Time</th><th>Phase</th><th>Event</th><th>Context tokens</th><th>Δ since previous</th><th>5-hour plan %</th><th>Weekly %</th></tr></thead><tbody id="rows"></tbody></table></div>
 
@@ -44,6 +50,15 @@ const maxCtx = Math.max(...C.map(c => c.context_tokens));
 bars("ctx", C.map(c => [`${c.ts.slice(11, 16)} ${c.event}`, c.context_tokens]), maxCtx);
 const b = Object.entries(last.breakdown || {});
 bars("brk", b, Math.max(...b.map(x => x[1])));
+["clear", "compact"].forEach(x => {
+  const E = C.filter(c => c.experiment === x);
+  const el = "exp-" + x;
+  if (!E.length) { document.getElementById(el).innerHTML = '<p class="muted">No readings yet.</p>'; return; }
+  bars(el, E.map(c => [c.event, c.context_tokens]), Math.max(...E.map(c => c.context_tokens)));
+  const d = E[E.length - 1].context_tokens - E[0].context_tokens;
+  document.getElementById(el).insertAdjacentHTML("beforeend",
+    `<p class="muted">Change from first to last reading: ${d >= 0 ? "+" : ""}${fmt(d)} tokens (${Math.round(d / E[0].context_tokens * 100)}%)</p>`);
+});
 document.getElementById("rows").innerHTML = C.map((c, i) => `<tr><td>${esc(c.ts.replace("T", " ").slice(0, 16))}</td><td>${esc(c.phase)}</td><td>${esc(c.event)}</td>
   <td class="num">${fmt(c.context_tokens)}</td><td class="num">${i ? (c.context_tokens - C[i - 1].context_tokens >= 0 ? "+" : "") + fmt(c.context_tokens - C[i - 1].context_tokens) : "—"}</td>
   <td class="num">${c.plan_5h_pct}%</td><td class="num">${c.weekly_pct}%</td></tr>`).join("");

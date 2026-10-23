@@ -21,6 +21,18 @@ A dataset + dashboard of how US CS courses let students use generative AI, plus 
 4. Do not write `docs/EVALUATION.md` or `docs/REFLECTION.md` content — those are the student's.
 5. Before the student runs /clear: make sure the log, tokens and specs are up to date, and note the next step in `specs/STATUS.md`.
 
+## Recording a token checkpoint
+When the student says "record a token checkpoint: <event>":
+1. Call the `get_usage` tool (mcp__ccd_session_mgmt__get_usage, load via ToolSearch if deferred).
+2. Run `scripts/checkpoint.py` with `--tokens` = context.tokensUsed, `--pct5h` / `--weekly` from the plan windows,
+   `--breakdown` = context categories as a JSON object, `--event` as given, `--phase experiment`, and
+   `--experiment clear` or `--experiment compact` if the event mentions /clear or /compact.
+3. Add a timeline entry with scripts/log.py, run scripts/build.py, commit and push.
+Do not read other files first; the point is to measure the context cost of a bare reload.
+
+## /clear vs /compact experiment (in progress — see specs/STATUS.md for which step is next)
+Order of checkpoints: before /clear → after /clear → after reload task → before /compact → after /compact.
+
 ## Commands
 ```
 .venv/Scripts/python scripts/build.py

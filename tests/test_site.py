@@ -39,6 +39,16 @@ def test_dashboard_summary_matches_analysis():
     assert shipped == fresh
 
 
+def test_token_checkpoints_well_formed():
+    cps = read_js_data("tokens")["checkpoints"]
+    assert cps
+    for c in cps:
+        assert re.match(r"\d{4}-\d\d-\d\dT\d\d:\d\d", c["ts"])
+        assert isinstance(c["context_tokens"], int) and c["context_tokens"] > 0
+        assert 0 <= c["plan_5h_pct"] <= 100 and 0 <= c["weekly_pct"] <= 100
+        assert c.get("experiment") in (None, "clear", "compact")
+
+
 def test_timeline_entries_timestamped():
     entries = read_js_data("timeline")
     assert entries
