@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T17:21:48+00:00",
+ "generated": "2026-10-23T17:49:48+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -7,7 +7,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_distribution_fixture",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -140,7 +140,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_required_fields[uiuc-cs277]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -161,14 +161,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_required_fields[gatech-cs1301]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_required_fields[gatech-cs1332]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -315,7 +315,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[stanford-cs106b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -504,7 +504,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[umich-eecs280]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -518,7 +518,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[gatech-cs1301]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -672,14 +672,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_tristate_fields[stanford-cs106b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_tristate_fields[stanford-cs166]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -868,14 +868,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_year_plausible[berkeley-cs61b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_year_plausible[gatech-cs1301]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -952,28 +952,28 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.05,
+   "time": 0.053,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.004,
+   "time": 0.003,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_token_checkpoints_well_formed",
    "status": "passed",
-   "time": 0.048,
+   "time": 0.053,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.042,
+   "time": 0.037,
    "message": ""
   }
  ]
