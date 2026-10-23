@@ -50,5 +50,11 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "docs",
   "text": "Installed GitHub CLI; student signed in. Created public repo Shashank-Sathiya/genai-cs-course-policies, enabled GitHub Pages; CI ran 138 tests (all pass) and deployed the site."
+ },
+ {
+  "ts": "2026-10-23T12:58:43-04:00",
+  "actor": "student",
+  "phase": "validation",
+  "text": "Spot-checked rows 1-5 (CS50x, CS106A, CS106B, CS166, CS193X) against their source links; all matched. Results recorded in docs/VALIDATION.md."
  }
 ];

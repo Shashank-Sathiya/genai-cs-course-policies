@@ -31,6 +31,14 @@ The code was restored after each check, and the suite went back to 138/138 passi
 - Whether each 0–4 code is the right reading of its policy. One coder did all the coding, with no inter-rater check.
 - **Student review log** (fill in): which rows you checked against their sources and what you found.
 
+Reviewed by the student on 2026-10-23: the first 5 rows of `data/policies.json`, opened at their source links.
+
 | Row id | Source matches quote? | Agree with level? | Notes |
 |---|---|---|---|
-| | | | |
+| 1 (harvard-cs50x) | Yes | Yes (1, course tool only) | The CS50x 2025 honesty page lists the CS50 Duck as reasonable and other AI tools (ChatGPT, Claude, Copilot, Gemini) as not reasonable. |
+| 2 (stanford-cs106a) | Yes | Yes (0, prohibited) | The source is a 2024 Stanford Daily article, not the course syllabus. It may not reflect the current CS106A policy. |
+| 3 (stanford-cs106b) | Yes | Yes (0, prohibited) | Archived Summer 2024 honor code page. The ban covers graded work. |
+| 4 (stanford-cs166) | Yes | Yes (0, prohibited) | The page says AI use on graded work violates the Honor Code even if disclosed. |
+| 5 (stanford-cs193x) | Yes | Yes (2, restricted) | Spring 2023 page, the oldest in the dataset. AI may not write assignment code; debugging help must be cited. |
+
+Remaining rows 6–17 have not been reviewed by the student.

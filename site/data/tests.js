@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T16:42:05+00:00",
+ "generated": "2026-10-23T16:58:44+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -77,7 +77,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_required_fields[stanford-cs106b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -259,7 +259,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_level_in_codebook[uiuc-cs277]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -273,7 +273,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_level_in_codebook[berkeley-cs61b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -301,14 +301,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[harvard-cs50x]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[stanford-cs106a]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -336,21 +336,21 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uw-cse391]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uw-cse373]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_categoricals_in_codebook[uw-cse493e]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -427,14 +427,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[stanford-cs106a]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_source_is_https_url[stanford-cs106b]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -469,7 +469,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_source_is_https_url[uw-cse493e]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -574,14 +574,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_quote_present_and_short[uw-cse391]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_quote_present_and_short[uw-cse373]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -595,7 +595,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_quote_present_and_short[cmu-15112]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -616,7 +616,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_quote_present_and_short[uiuc-cs277]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -728,7 +728,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_tristate_fields[uiuc-cs225]",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -756,14 +756,14 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_tristate_fields[gatech-cs1301]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_data",
    "name": "test_tristate_fields[gatech-cs1332]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -812,7 +812,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_year_plausible[uw-cse391]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -847,7 +847,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_year_plausible[uiuc-cs225]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -938,7 +938,7 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_pages_exist",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -952,21 +952,21 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.05,
+   "time": 0.033,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.005,
+   "time": 0.002,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.046,
+   "time": 0.038,
    "message": ""
   }
  ]

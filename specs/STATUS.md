@@ -12,7 +12,7 @@
 | P8 Publish | Done — https://github.com/Shashank-Sathiya/genai-cs-course-policies, site at https://shashank-sathiya.github.io/genai-cs-course-policies/ |
 
 ## Next steps
-1. Student: spot-check ~5 dashboard rows against their source links; log the result with `scripts/log.py student validation "..."`.
+1. Done: student spot-checked rows 1-5 (all matched). Optional: check rows 6-17.
 2. Optional: grow the sample (R2s, liberal-arts colleges, more community colleges) to strengthen the analysis.
 3. Every push to main reruns the tests and redeploys the site.
 4. Run a deliberate /clear experiment: checkpoint, /clear, have Claude rebuild context from CLAUDE.md, then checkpoint again.
