@@ -15,4 +15,4 @@
 1. Done: student spot-checked rows 1-5 (all matched). Optional: check rows 6-17.
 2. Optional: grow the sample (R2s, liberal-arts colleges, more community colleges) to strengthen the analysis.
 3. Every push to main reruns the tests and redeploys the site.
-4. /clear vs /compact experiment: NEXT STEP = student runs /clear, then says "record a token checkpoint: after /clear". Remaining: after reload task, before /compact, after /compact.
+4. /clear vs /compact experiment: /clear half done. NEXT STEP = student types /compact in the original session, then Claude records "after /compact".

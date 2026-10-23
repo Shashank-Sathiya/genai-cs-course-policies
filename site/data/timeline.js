@@ -80,5 +80,11 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "experiment",
   "text": "Re-took the after-reload reading on a new turn, intended to replace the 76,311 reading that lagged within its turn. get_usage reported 76,300 context tokens (5h 22%, weekly 5%) with no Messages category at all. That is the same as the after-/clear reading, so this meter appears to count only fixed overhead (tools, system prompt, skills, memory) in this session and does not reflect the reload's message tokens."
+ },
+ {
+  "ts": "2026-10-23T13:51:04-04:00",
+  "actor": "claude",
+  "phase": "experiment",
+  "text": "/clear result: 182,173 tokens before, 76,300 in a fresh session (a 58% drop; only fixed overhead remains). Recorded 'before /compact' in the original session: 203,252 tokens, 116,106 of them messages. Waiting for the student to type /compact."
  }
 ];
