@@ -92,5 +92,11 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "experiment",
   "text": "Recorded after /compact: 203,252 -> 80,815 context tokens (-60%; Messages 116,106 -> 5,949). /clear gave 182,173 -> 76,300 (-58%). Experiment complete; findings added to the tokens page."
+ },
+ {
+  "ts": "2026-10-24T09:50:46-04:00",
+  "actor": "claude",
+  "phase": "reflection",
+  "text": "Added the measured token results to docs/REFLECTION.md at the student's request; the student wrote the reflection text."
  }
 ];

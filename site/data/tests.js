@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-24T13:48:13+00:00",
+ "generated": "2026-10-24T13:50:47+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -7,7 +7,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_distribution_fixture",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -938,42 +938,42 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_pages_exist",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_pages_link_each_other",
    "status": "passed",
-   "time": 0.218,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.051,
+   "time": 0.053,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.036,
+   "time": 0.004,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_token_checkpoints_well_formed",
    "status": "passed",
-   "time": 0.042,
+   "time": 0.003,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.041,
+   "time": 0.038,
    "message": ""
   }
  ]

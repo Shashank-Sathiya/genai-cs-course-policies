@@ -8,7 +8,7 @@
 | P4 Validation explorer + report | Done — 139 tests pass; mutation check recorded in docs/VALIDATION.md |
 | P5 Timeline | Done (seeded; keep logging) |
 | P6 Tokens | Done: /clear vs /compact experiment complete (see site/tokens.html) |
-| P7 Evaluation + reflection | Evaluation done (student); reflection in progress |
+| P7 Evaluation + reflection | Done (student-written; token results appended) |
 | P8 Publish | Done — https://github.com/Shashank-Sathiya/genai-cs-course-policies, site at https://shashank-sathiya.github.io/genai-cs-course-policies/ |
 
 ## Next steps
