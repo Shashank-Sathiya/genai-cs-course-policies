@@ -86,5 +86,11 @@ window.TIMELINE = [
   "actor": "claude",
   "phase": "experiment",
   "text": "/clear result: 182,173 tokens before, 76,300 in a fresh session (a 58% drop; only fixed overhead remains). Recorded 'before /compact' in the original session: 203,252 tokens, 116,106 of them messages. Waiting for the student to type /compact."
+ },
+ {
+  "ts": "2026-10-24T09:48:11-04:00",
+  "actor": "claude",
+  "phase": "experiment",
+  "text": "Recorded after /compact: 203,252 -> 80,815 context tokens (-60%; Messages 116,106 -> 5,949). /clear gave 182,173 -> 76,300 (-58%). Experiment complete; findings added to the tokens page."
  }
 ];

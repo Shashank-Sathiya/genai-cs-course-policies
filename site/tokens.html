@@ -31,6 +31,7 @@
 <div class="panel">
 <p><b>Fixed overhead.</b> Tool definitions, the system prompt and skills are loaded every turn, whatever the task. This is the floor that <code>/clear</code> returns you to.</p>
 <p><b>Messages.</b> This grows with every web fetch, file read and test run. Data gathering (web pages) and validation (test output) usually grow it fastest.</p>
+<p><b>Result (measured 2026-10-23/24).</b> <code>/clear</code> (a fresh session): 182,173 &rarr; 76,300 tokens (&minus;58%). <code>/compact</code>: 203,252 &rarr; 80,815 tokens (&minus;60%); Messages fell from 116,106 to 5,949. Both land near the same fixed-overhead floor (~75k). <code>/compact</code> keeps about 4.5k more tokens than <code>/clear</code>: that's the conversation summary, which let work continue without re-reading files. The 5-hour % dropped to 0 at the last reading because the 5-hour window reset overnight, not because of <code>/compact</code>.</p>
 <p><b>/clear vs /compact.</b> <code>/clear</code> drops all messages; the spec files (<code>CLAUDE.md</code>, <code>specs/</code>) let Claude recover the project state from disk. <code>/compact</code> keeps a summary instead, so it costs a summarization pass but keeps more continuity. Log a checkpoint just before and after either one to measure the difference.</p>
 </div>
 </main>

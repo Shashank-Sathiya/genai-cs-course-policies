@@ -2,12 +2,12 @@
 
 Explore the results interactively on the validation page (`site/tests.html`). Reproduce them with `.venv/Scripts/python scripts/build.py`.
 
-## 1. Automated tests — 138 passing (2026-10-23)
+## 1. Automated tests — 139 passing (2026-10-24)
 | File | What it checks | Count |
 |---|---|---|
 | `tests/test_data.py` | Schema, codebook validity, https source, evidence quote, consistency rules, per policy | 127 |
 | `tests/test_analysis.py` | Analysis functions vs hand-computed fixtures; totals reconcile on real data | 6 |
-| `tests/test_site.py` | Site data == source + fresh analysis; pages exist and cross-link; timeline timestamps | 5 |
+| `tests/test_site.py` | Site data == source + fresh analysis; pages exist and cross-link; timeline timestamps; token checkpoints | 6 |
 
 ## 2. Do the tests actually catch bugs? (mutation check)
 | Injected bug | Result |
@@ -16,7 +16,7 @@ Explore the results interactively on the validation page (`site/tests.html`). Re
 | Dashboard data edited so it no longer matches the source | 1 test failed (`test_dashboard_policies_match_source`) |
 | CS 225 row's evidence quote emptied | 1 test failed (`test_quote_present_and_short[uiuc-cs225]`) |
 
-The code was restored after each check, and the suite went back to 138/138 passing.
+The code was restored after each check, and the suite went back to all tests passing.
 
 ## 3. Manual / browser checks
 - All four pages loaded from a local server; the browser console showed no errors.

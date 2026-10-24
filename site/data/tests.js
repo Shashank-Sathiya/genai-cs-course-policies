@@ -1,5 +1,5 @@
 window.TESTS = {
- "generated": "2026-10-23T17:51:05+00:00",
+ "generated": "2026-10-24T13:48:13+00:00",
  "python": "3.12.1",
  "exit_code": 0,
  "tests": [
@@ -7,7 +7,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_distribution_fixture",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -42,7 +42,7 @@ window.TESTS = {
    "file": "test_analysis",
    "name": "test_summary_real_data_consistent",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
@@ -581,7 +581,7 @@ window.TESTS = {
    "file": "test_data",
    "name": "test_quote_present_and_short[uw-cse373]",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.0,
    "message": ""
   },
   {
@@ -938,42 +938,42 @@ window.TESTS = {
    "file": "test_site",
    "name": "test_pages_exist",
    "status": "passed",
-   "time": 0.0,
+   "time": 0.001,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_pages_link_each_other",
    "status": "passed",
-   "time": 0.001,
+   "time": 0.218,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_policies_match_source",
    "status": "passed",
-   "time": 0.029,
+   "time": 0.051,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_dashboard_summary_matches_analysis",
    "status": "passed",
-   "time": 0.002,
+   "time": 0.036,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_token_checkpoints_well_formed",
    "status": "passed",
-   "time": 0.04,
+   "time": 0.042,
    "message": ""
   },
   {
    "file": "test_site",
    "name": "test_timeline_entries_timestamped",
    "status": "passed",
-   "time": 0.049,
+   "time": 0.041,
    "message": ""
   }
  ]
